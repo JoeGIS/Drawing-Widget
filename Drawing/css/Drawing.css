@@ -1,0 +1,156 @@
+.drawingWidget .drawingControlsDiv {
+    height: 180px;
+}
+
+.drawingWidget .drawClearGrpahics {
+    position: absolute;
+    bottom: 25px;
+    margin-left: 90px;
+}
+
+.drawingWidget .drawingTool {
+    
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid #666;
+    border-radius: 5px;
+    
+    height: 20px;
+    width: 20px;
+    
+    margin: 2px;
+    
+    vertical-align: middle;
+    
+    cursor: pointer;
+}
+
+.drawingWidget .drawingTool:Hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.drawingWidget .drawingToolSelected {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid #333;
+    border-radius: 5px;
+    
+    height: 20px;
+    width: 20px;
+    
+    margin: 1px;
+    
+    vertical-align: middle;
+    
+    cursor: pointer;
+    
+}
+
+.drawingWidget .drawingColorButton {
+    background-color: #FFFFFF;
+    border-color: black;
+    border-width: 1px;
+}
+
+.drawingWidget .drawSize {
+    height: 16px;
+    width: 40px;
+}
+
+
+.drawingWidget .fontTool {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid #666;
+    border-radius: 5px;
+    
+    height: 16px;
+    width: 16px;
+    
+    margin: 3px;
+    
+    vertical-align: middle;
+    
+    cursor: pointer;
+    
+}
+
+.drawingWidget .fontTool:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.drawingWidget .fontToolSelected {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #000;
+    border-radius: 5px;
+    
+    height: 16px;
+    width: 16px;
+    
+    margin: 3px;
+    
+    vertical-align: middle;
+    
+    cursor: pointer;
+    
+}
+
+.drawingWidget .drawTransparencySlider {
+    width: 130px;
+}
+
+.drawingWidget .drawTransparencyString {
+    width: 35px;
+}
+
+.drawingWidget .drawSolidFillDiv {
+}
+
+.drawingWidget .drawTextString {
+    width: 268px;
+    height: 35px;
+    font: 10pt arial,sans-serif;
+}
+
+
+.drawingWidget .milSymbolPropertiesDiv {
+    width: 300px;
+    height: 135px;
+    border: 1px solid #bbb;
+    padding: 2px;
+    overflow: auto;
+}
+
+
+.drawingWidget .labelMilSymbol {
+    width: 115px;
+    font-weight: bold;
+    display: inline-block;
+    padding-top: 2px;
+}
+
+.drawingWidget .labelMilSymbolText {
+    width: 145px;
+    font-weight: bold;
+    display: inline-block;
+    padding-top: 2px;
+}
+
+.drawingWidget .selectMilSymbol {
+    width: 164px;
+}
+
+.drawingWidget .inputMilSymbolText {
+    width: 128px;
+}
+
+.drawingWidget .previewMilSymbolImg {
+    position: absolute;
+    
+    padding-left: 5px;
+
+    z-index: 90;
+}
+
+
+
+
+

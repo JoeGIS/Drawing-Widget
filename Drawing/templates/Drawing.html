@@ -1,0 +1,319 @@
+<div class="${theme}" role="presentation">
+    
+    <link rel="stylesheet" href="${css_path}"/>
+    
+    
+    
+    Tool: 
+    <img data-dojo-attach-point="drawPoint" id="drawPoint" 
+            data-dojo-attach-event="onClick:_drawPointClick" 
+            src="" title="Point" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawPolyline" id="drawPolyline" 
+            data-dojo-attach-event="onClick:_drawPolylineClick" 
+            src="" title="Polyline" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawFreehand_Polyline" id="drawFreehand_Polyline" 
+            data-dojo-attach-event="onClick:_drawFreehand_PolylineClick" 
+            src="" title="Freehand Polyline" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawPolygon" id="drawPolygon" 
+            data-dojo-attach-event="onClick:_drawPolygonClick" 
+            src="" title="Polygon" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawFreehand_Polygon" id="drawFreehand_Polygon" 
+            data-dojo-attach-event="onClick:_drawFreehand_PolygonClick" 
+            src="" title="Freehand Polygon" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawCircle" id="drawCircle" 
+            data-dojo-attach-event="onClick:_drawCircleClick" 
+            src="" title="Circle" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawEllipse" id="drawEllipse" 
+            data-dojo-attach-event="onClick:_drawEllipseClick" 
+            src="" title="Ellipse" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawText" id="drawText" 
+            data-dojo-attach-event="onClick:_drawTextClick" 
+            src="" title="Text" class="${css.drawingTool}" /> 
+    <img data-dojo-attach-point="drawMilSymbol" id="drawMilSymbol" 
+            data-dojo-attach-event="onClick:_drawMilSymbolClick" 
+            src="" title="Military Symbol" class="${css.drawingTool}" />
+    <br /><br />
+    
+    
+    
+    <div data-dojo-attach-point="BasicShapesDiv" class="${css.drawingControlsDiv}">
+    
+        <label for="colorButton">Colour: </label>
+        <div data-dojo-attach-point="colorButton" 
+                data-dojo-type="dijit/form/DropDownButton" 
+                id="colorButton" 
+                class="${css.drawingColorButton}">
+            <span data-dojo-attach-point="colorText">
+                <span data-dojo-attach-point="colorSwatch" id="colorSwatch" style="height: 10px; width: 10px; border: 1px solid black; background-color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </span>
+            <div data-dojo-attach-point="colorPaletteDialog" data-dojo-type="dijit/TooltipDialog">
+                <div data-dojo-attach-point="colorPaletteWidget" 
+                        data-dojo-type="dijit/ColorPalette" 
+                        data-dojo-props="palette: '7x10'" 
+                        data-dojo-attach-event="onChange:_colorPickerChange">
+                </div>
+            </div>
+        </div>&nbsp;&nbsp;
+        
+        <label data-dojo-attach-point="drawSizeLabel" for="drawSize">Size: </label>
+        <span data-dojo-attach-point="drawSize" 
+                id="drawSize" 
+                data-dojo-type="dijit/form/NumberSpinner" 
+                data-dojo-props="value: 10, constraints: { min: 1, max: 50 }, intermediateChanges: true" 
+                data-dojo-attach-event="onChange:_sizeSpinnerChange" 
+                class="${css.drawSize}">
+        </span>&nbsp;&nbsp;
+        
+        <span data-dojo-attach-point="drawFontDiv">
+            <img data-dojo-attach-point="drawFontBold" src="" title="Bold" class="${css.fontTool}" data-dojo-attach-event="onClick:_fontBoldClick" />
+            <img data-dojo-attach-point="drawFontUnderline" src="" title="Underline" class="${css.fontTool}" data-dojo-attach-event="onClick:_fontUnderlineClick" />
+            <img data-dojo-attach-point="drawFontItalic" src="" title="Italic" class="${css.fontTool}" data-dojo-attach-event="onClick:_fontItalicClick" />
+        </span>
+        <br /><br />
+        
+        <div data-dojo-attach-point="drawTransparencySlider" 
+                data-dojo-type="dijit/form/HorizontalSlider" 
+                data-dojo-props="value: 0, minimum: 0, maximum: 0.99, intermediateChanges: true" 
+                 data-dojo-attach-event="onChange:_transparencySliderChange" 
+                class="${css.drawTransparencySlider}">
+        </div>
+        
+        <label for="drawTransparencySliderText">Transparency: </label>
+        <input data-dojo-attach-point="drawTransparencySliderText" id="drawTransparencySliderText" type="text" value="0%" class="${css.drawTransparencyString}"  />
+        <br /><br />
+        
+        <div data-dojo-attach-point="drawSolidFillDiv" class="${css.drawSolidFillDiv}">
+            <div data-dojo-attach-point="drawSolidFill" 
+                    id="drawSolidFill"
+                    data-dojo-type="dijit/form/CheckBox" 
+                    data-dojo-attach-event="onChange:_solidFillChange">
+            </div>
+            <label for="drawSolidFill"> Solid Fill</label>
+        </div>
+        
+        <input data-dojo-attach-point="drawTextString" 
+                type="text" 
+                value="Custom text here" 
+                class="${css.drawTextString}" />
+        <br /><br />
+        
+        <button data-dojo-attach-point="clearAllGraphics" class="${css.drawClearGrpahics}" data-dojo-attach-event="onClick:_clearGraphic">Clear All Graphics</button>
+    </div>
+    
+    
+    
+    
+    
+    <div data-dojo-attach-point="MilSymbolDiv" class="${css.drawingControlsDiv}" style="display:none;">
+        
+        <div class="${css.milSymbolPropertiesDiv}">
+            <label for="SIDCCODINGSCHEME" class="${css.labelMilSymbol}">Coding Scheme: </label>
+            <select id="SIDCCODINGSCHEME" class="${css.selectMilSymbol}" data-dojo-attach-event="onChange:_changeSIDCCODINGSCHEME">
+                <option value="S">WARFIGHTING</option>
+                <option value="I">INTELLIGENCE</option>
+                <option value="O">STABILITY OPERATIONS (SO)</option>
+            </select>
+            <br />
+            
+            <label for="SIDCAFFILIATION" class="${css.labelMilSymbol}">Affiliation: </label>
+            <select id="SIDCAFFILIATION" class="${css.selectMilSymbol}" data-dojo-attach-event="onChange:_changeSIDCAFFILIATION">
+                <option value="P">PENDING</option>
+                <option value="U">UNKNOWN</option>
+                <option value="A">ASSUMED FRIEND</option>
+                <option value="F" >FRIEND</option>
+                <option value="N">NEUTRAL</option>
+                <option value="S">SUSPECT</option>
+                <option value="H">HOSTILE</option>
+                <option value="G">EXERCISE PENDING</option>
+                <option value="W">EXERCISE UNKNOWN</option>
+                <option value="D">EXERCISE FRIEND</option>
+                <option value="L">EXERCISE NEUTRAL</option>
+                <option value="M">EXERCISE ASSUMED FRIEND</option>
+                <option value="J">JOKER</option>
+                <option value="K">FAKER</option>
+                <option value="O">NONE SPECIFIED</option>
+            </select>
+            <br />
+            
+            <label for="SIDCBATTLEDIMENSION" class="${css.labelMilSymbol}">Battle Dimension: </label>
+            <select id="SIDCBATTLEDIMENSION" class="${css.selectMilSymbol}" data-dojo-attach-event="onChange:_changeSIDCBATTLEDIMENSION">
+            </select>
+            <br />
+            
+            <label for="SIDCSTATUS" class="${css.labelMilSymbol}">Status: </label>
+            <select id="SIDCSTATUS" class="${css.selectMilSymbol}" data-dojo-attach-event="onChange:_changeSIDCSTATUS">
+                <option value="-">-</option>
+                <option value="A">ANTICIPATED/PLANNED</option>
+                <option value="P">PRESENT</option>
+                
+                <option value="C">PRESENT/FULLY CAPABLE - 2525</option>
+                <option value="D">PRESENT/DAMAGED - 2525</option>
+                <option value="X">PRESENT/DESTROYED - 2525</option>
+                <option value="F">PRESENT/FULL TO CAPACITY - 2525</option>
+            </select>
+            <br />
+            
+            <label for="SIDCFUNCTIONID" class="${css.labelMilSymbol}">Function ID: </label>
+            <select id="SIDCFUNCTIONID" class="${css.selectMilSymbol}" data-dojo-attach-event="onChange:_changeSIDCFUNCTIONID">
+            </select>
+            <br />
+            
+            <label for="SIDCSYMBOLMODIFIER11" class="${css.labelMilSymbol}">Symbol Modifier 1: </label>
+            <select id="SIDCSYMBOLMODIFIER11" class="${css.selectMilSymbol}" data-dojo-attach-event="onChange:_changeSIDCSYMBOLMODIFIER11">
+                <option value="-">-</option>
+                <option value="A">HEADQUARTERS</option>
+                <option value="B">TASK FORCE HQ</option>
+                <option value="C">FEINT DUMMY HQ</option>
+                <option value="D">FEINT DUMMY/TASK FORCE HQ </option>
+                <option value="E">TASK FORCE</option>
+                <option value="F">FEINT DUMMY</option>
+                <option value="G">FEINT DUMMY/TASK FORCE</option>
+                <option value="H">INSTALLATION</option>
+                <option value="M">MOBILITY</option>
+                <option value="N">TOWED ARRAY</option>
+            </select>
+            <br />
+            
+            <label for="SIDCSYMBOLMODIFIER12" class="${css.labelMilSymbol}">Symbol Modifier 2: </label>
+            <select id="SIDCSYMBOLMODIFIER12" class="${css.selectMilSymbol}" data-dojo-attach-event="onChange:_changeSIDCSYMBOLMODIFIER12">
+            </select>
+            
+            <br /><br />
+            <center><u>Text Modifiers: (Hover each field for details)</u></center><br />
+            <label for="FieldC" class="${css.labelMilSymbolText}"
+                    title="9 Characters: A text modifier in an equipment symbol that identifies the number of items present.">Quantity: </label>
+            <input data-dojo-attach-point="FieldC" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="9 Characters: A text modifier in an equipment symbol that identifies the number of items present." />
+            <br />
+            
+            <label for="FieldF" class="${css.labelMilSymbolText}"
+                    title="3 Characters: A text modifier in a unit symbol that displays (+) for reinforced, (-) for reduced, (&plusmn;) reinforced and reduced.">Reinforced or Reduced: </label>
+            <input data-dojo-attach-point="FieldF" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="3 Characters: A text modifier in a unit symbol that displays (+) for reinforced, (-) for reduced, (&plusmn;) reinforced and reduced." />
+            <br />
+            
+            <label for="FieldG" class="${css.labelMilSymbolText}"
+                    title="20 Characters: A text modifier for units, equipment and installations; content is implementation specific.">Staff Comments: </label>
+            <input data-dojo-attach-point="FieldG" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="20 Characters: A text modifier for units, equipment and installations; content is implementation specific." />
+            <br />
+            
+            <label for="FieldH" class="${css.labelMilSymbolText}"
+                    title="20 Characters: A text modifier for units, equipment, and installations; content is implementation specific.">Additional Info: </label>
+            <input data-dojo-attach-point="FieldH" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="20 Characters: A text modifier for units, equipment, and installations; content is implementation specific." />
+            <br />
+            
+            <label for="FieldJ" class="${css.labelMilSymbolText}"
+                    title="2 Characters: A text modifier for units, equipment, and installations that consists of a one-letter reliability rating and a one-number credibility rating.">Evaluation Rating: </label>
+            <input data-dojo-attach-point="FieldJ" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="2 Characters: A text modifier for units, equipment, and installations that consists of a one-letter reliability rating and a one-number credibility rating." />
+            <br />
+            
+            <label for="FieldK" class="${css.labelMilSymbolText}"
+                    title="5 Characters: A text modifier for units and installations that indicates unit effectiveness or installation capability.">Combat Effectiveness: </label>
+            <input data-dojo-attach-point="FieldK" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="5 Characters: A text modifier for units and installations that indicates unit effectiveness or installation capability." />
+            <br />
+            
+            <label for="FieldL" class="${css.labelMilSymbolText}"
+                    title="1 Characters: A text modifier for hostile equipment; ! indicates detectable electronic signatures.">Signature Equipment: </label>
+            <input data-dojo-attach-point="FieldL" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="1 Characters: A text modifier for hostile equipment; ! indicates detectable electronic signatures." />
+            <br />
+            
+            <label for="FieldM" class="${css.labelMilSymbolText}"
+                    title="21 Characters: A text modifier for units that indicates number or title of higher echelon command (corps are designated by Roman numerals).">Higher Formation: </label>
+            <input data-dojo-attach-point="FieldM" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="21 Characters: A text modifier for units that indicates number or title of higher echelon command (corps are designated by Roman numerals)." />
+            <br />
+            
+            <label for="FieldN" class="${css.labelMilSymbolText}"
+                    title="3 Characters: A text modifier for equipment; letters ENY denote hostile symbols.">Hostile: </label>
+            <input data-dojo-attach-point="FieldN" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="3 Characters: A text modifier for equipment; letters ENY denote hostile symbols." />
+            <br />
+            
+            <label for="FieldP" class="${css.labelMilSymbolText}"
+                    title="5 Characters: A text modifier displaying IFF/SIF Identification modes and codes.">IFF/SIF: </label>
+            <input data-dojo-attach-point="FieldP" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="5 Characters: A text modifier displaying IFF/SIF Identification modes and codes." />
+            <br />
+            
+            <label for="FieldQ" class="${css.labelMilSymbolText}"
+                    title="Degrees 4 Characters: A graphic modifier for units and equipment that identifies the direction of movement or intended movement of an object.">Direction: </label>
+            <input data-dojo-attach-point="FieldQ" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="Degrees 4 Characters: A graphic modifier for units and equipment that identifies the direction of movement or intended movement of an object." />
+            <br />
+            
+            <label for="FieldT" class="${css.labelMilSymbolText}"
+                    title="21 Characters: A text modifier for units, equipment, and installations that uniquely identifies a particular symbol or track number. Identifies acquisitions number when used with SIGINT symbology.">Unique Designation: </label>
+            <input data-dojo-attach-point="FieldT" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="21 Characters: A text modifier for units, equipment, and installations that uniquely identifies a particular symbol or track number. Identifies acquisitions number when used with SIGINT symbology." />
+            <br />
+            
+            <label for="FieldV" class="${css.labelMilSymbolText}"
+                    title="24 Characters: A text modifier for equipment that indicates types of equipment.">Type: </label>
+            <input data-dojo-attach-point="FieldV" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="24 Characters: A text modifier for equipment that indicates types of equipment." />
+            <br />
+            
+            <label for="FieldW" class="${css.labelMilSymbolText}"
+                    title="16 Characters: A text modifier for units, equipment, and installations that displays DTG format: DDHHMMSSZMONYYYY or 'O/O' for on order (see 5.5.2.6).">DTG: </label>
+            <input data-dojo-attach-point="FieldW" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="16 Characters: A text modifier for units, equipment, and installations that displays DTG format: DDHHMMSSZMONYYYY or 'O/O' for on order (see 5.5.2.6)." />
+            <br />
+            
+            <label for="FieldX" class="${css.labelMilSymbolText}"
+                    title="14 Characters: A text modifier for units, equipment, and installations, that displays either altitude flight level, depth for submerged objects; or height of equipment or structures on the ground.">Altitude/Depth: </label>
+            <input data-dojo-attach-point="FieldX" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="14 Characters: A text modifier for units, equipment, and installations, that displays either altitude flight level, depth for submerged objects; or height of equipment or structures on the ground." />
+            <br />
+            
+            <label for="FieldY" class="${css.labelMilSymbolText}"
+                    title="19 Characters: A text modifier for units, equipment, and installations that displays a symbol's location in degrees, minutes, and seconds (or in UTM or other applicable display format).">Location: </label>
+            <input data-dojo-attach-point="FieldY" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="19 Characters: A text modifier for units, equipment, and installations that displays a symbol's location in degrees, minutes, and seconds (or in UTM or other applicable display format)." />
+            <br />
+            
+            <label for="FieldZ" class="${css.labelMilSymbolText}"
+                    title="8 Characters: A text modifier for units and equipment that displays velocity as set forth in MIL-STD-6040.">Speed: </label>
+            <input data-dojo-attach-point="FieldZ" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="8 Characters: A text modifier for units and equipment that displays velocity as set forth in MIL-STD-6040." />
+            <br />
+            
+            <label for="FieldAA" class="${css.labelMilSymbolText}"
+                    title="9 Characters: A text modifier for units; indicator is contained inside the frame; contains the name of the special C2 Headquarters.">Special HQ: </label>
+            <input data-dojo-attach-point="FieldAA" type="text" class="${css.inputMilSymbolText}" data-dojo-attach-event="onKeyUp:_refreshMilSymbolPreview"
+                    title="9 Characters: A text modifier for units; indicator is contained inside the frame; contains the name of the special C2 Headquarters." />
+            <br />
+            
+            
+            
+            
+            
+            
+        </div>
+        <br />
+        
+        <span class="${css.labelMilSymbol}">
+            <label data-dojo-attach-point="drawMilSymbolSizeLabel" for="drawMilSymbolSize">Size:&nbsp;&nbsp;</label>
+            <span data-dojo-attach-point="drawMilSymbolSize" 
+                    id="drawMilSymbolSize" 
+                    data-dojo-type="dijit/form/NumberSpinner" 
+                    data-dojo-props="value: 30, constraints: { min: 10, max: 100 }, intermediateChanges: true" 
+                    data-dojo-attach-event="onChange:_refreshMilSymbolPreview" 
+                    class="${css.drawSize}">
+            </span>
+        </span>
+        Preview: <img data-dojo-attach-point="previewMilSymbol" id="previewMilSymbol" src="" class="${css.previewMilSymbolImg}" />
+        
+        <br />
+        
+        <div style="margin-top: 5px;">SIDC: <span data-dojo-attach-point="SIDCSpan" style="font-weight:normal;"></span></div>
+        
+    </div>
+    
+    
+    
+</div>
