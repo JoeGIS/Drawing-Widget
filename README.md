@@ -80,7 +80,9 @@ Anyone and everyone is welcome to contribute.
 
 ## Credits
 Military Symbol drawing tool. Copyright (c) 2015 Måns Beckman.  All rights reserved.  For more information including full licence, read  /libs/milsymbol.js 
+
 [Website](http://www.spatialillusions.com)
+
 [Github](https://github.com/spatialillusions/MilSymbol/)
 
 ## Licensing
