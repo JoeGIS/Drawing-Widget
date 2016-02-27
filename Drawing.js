@@ -2,7 +2,7 @@
 ///////////////////////////////-------Drawing.js-------//////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // 
-// Version: 2.1
+// Version: 2.2
 // Author: Joseph Rogan (joseph.rogan@forces.gc.ca canadajebus@gmail.com)
 // 
 // 
@@ -31,6 +31,8 @@
 //
 // 
 // Changes:
+// Version 2.2
+//  -Changed context menu to be created during startup method.
 // Version 2.1
 //  -Added .drawingWidget { white-space: nowrap; } to css file
 // Version 2.0
@@ -203,15 +205,15 @@ define([
                 _this.editToolbar.deactivate();
                 });
             
-            // Create the right click context menu for the graphics
-            this.createDrawingContextMenu();
-            
         },
         
         
         // Called when the widget.startup() is used to view the widget
         startup: function() {
             this.inherited(arguments);
+            
+            // Create the right click context menu for the graphics
+            this.createDrawingContextMenu();
             
             // Update select boxes with defaults
             milSymbolCodeGenerator.battledimensionValues();
