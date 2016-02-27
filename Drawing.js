@@ -2,7 +2,7 @@
 ///////////////////////////////-------Drawing.js-------//////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // 
-// Version: 2.0
+// Version: 2.1
 // Author: Joseph Rogan (joseph.rogan@forces.gc.ca canadajebus@gmail.com)
 // 
 // 
@@ -31,8 +31,10 @@
 //
 // 
 // Changes:
+// Version 2.1
+//  -Added .drawingWidget { white-space: nowrap; } to css file
 // Version 2.0
-//  -added Military Symbol drawing tool. Copyright (c) 2015 Måns Beckman  
+//  -Added Military Symbol drawing tool. Copyright (c) 2015 Måns Beckman  
 //   http://www.spatialillusions.com All rights reserved.  For more information,
 //   read  /libs/milsymbol.js 
 // 
@@ -43,6 +45,7 @@ define([
     "dijit/_WidgetBase",
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin", 
+    "dojo/Evented", 
     
     "dojo/_base/declare",
     "dojo/_base/lang", 
@@ -89,7 +92,7 @@ define([
     "dojo/dom-construct", 
     "dojo/domReady!"
 
-], function(_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, 
+], function(_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Evented, 
     declare, lang, on, require, 
     Graphic, 
     Font, PictureMarkerSymbol, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Color, 
@@ -102,7 +105,7 @@ define([
     dijitTemplate, dom, domConstruct)
 {
     
-    return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
+    return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Evented], {
         
         // Set the template .html file
         templateString: dijitTemplate,
@@ -223,6 +226,8 @@ define([
             document.getElementById('SIDCBATTLEDIMENSION').value = "G";
             this._changeSIDCBATTLEDIMENSION();
             
+            // Emit event that the widget is loaded
+            this.emit("load", {});
         },
         
         

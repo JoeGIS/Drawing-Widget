@@ -1,3 +1,10 @@
+
+.drawingWidget {
+    white-space: nowrap;
+    min-width: 310px;
+    min-height: 230px;
+}
+
 .drawingWidget .drawingControlsDiv {
     height: 180px;
 }
@@ -105,7 +112,7 @@
 }
 
 .drawingWidget .drawTextString {
-    width: 268px;
+    width: 300px;
     height: 35px;
     font: 10pt arial,sans-serif;
 }
